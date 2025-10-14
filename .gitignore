@@ -1,0 +1,15 @@
+# Binaries
+/bin/
+/build/
+
+# IDE
+.vscode/
+.idea/
+
+# Dependency directories
+/vendor/
+
+# Environment variables
+.env
+tmp
+/.history
