@@ -1,13 +1,14 @@
-package initialize
+package router
 
 import (
-	"clean/internal/middleware"
+	"clean/infrastructure/http/middleware"
+	"clean/infrastructure/initialize"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
-func Router(deps *Dependencies, jwtSecret string) *fiber.App {
+func Router(deps *initialize.Dependencies, jwtSecret string) *fiber.App {
 	app := fiber.New()
 	app.Use(logger.New())
 

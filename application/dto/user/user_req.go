@@ -17,7 +17,6 @@ type ChangePasswordRequest struct {
 }
 
 type UpdateUserRequest struct {
-	Name         string `json:"name"`
-	Email        string `json:"email"`
-	CurrentEmail string `json:"currentemail"`
+	Name  string `json:"name"`
+	Email string `json:"email"`
 }

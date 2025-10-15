@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	jwtpkg "clean/internal/pkg/jwt"
+	jwtpkg "clean/infrastructure/pkg/jwt"
 
 	"github.com/gofiber/fiber/v2"
 )

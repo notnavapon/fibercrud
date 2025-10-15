@@ -1,7 +1,8 @@
 package main
 
 import (
-	"clean/internal/initialize"
+	"clean/infrastructure/http/router"
+	"clean/infrastructure/initialize"
 	"log"
 )
 
@@ -10,7 +11,7 @@ func main() {
 
 	db := initialize.Database(config)
 	deps := initialize.NewDependencies(db, config.JwtSecret)
-	app := initialize.Router(deps, config.JwtSecret)
+	app := router.Router(deps, config.JwtSecret)
 
 	log.Fatal(app.Listen(":" + config.ServerPort))
 }

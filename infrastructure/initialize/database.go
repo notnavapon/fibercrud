@@ -1,7 +1,7 @@
 package initialize
 
 import (
-	domainUser "clean/internal/domain/user"
+	"clean/domain/user/entity"
 	"fmt"
 	"log"
 
@@ -20,7 +20,7 @@ func Database(cfg *Config) *gorm.DB {
 		log.Fatal("Failed to connect database:", err)
 	}
 
-	db.AutoMigrate(&domainUser.User{})
+	db.AutoMigrate(&entity.User{})
 	log.Println("Database connected")
 
 	return db

@@ -1,8 +1,8 @@
 package handlerUser
 
 import (
-	dtoUser "clean/internal/dto/user"
-	usecaseUser "clean/internal/usecase/user"
+	dtoUser "clean/application/dto/user"
+	usecaseUser "clean/application/usecase/user"
 	"fmt"
 	"strconv"
 	"time"
@@ -182,7 +182,7 @@ func (handler *UserHandler) Update(c *fiber.Ctx) error {
 	//check cookie.email = req.email
 	cookieEmail := c.Locals("email").(string)
 
-	if cookieEmail != req.CurrentEmail {
+	if cookieEmail != req.Email {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"error": "Email in the cookie does not match the logged-in email.",
 		})

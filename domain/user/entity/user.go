@@ -1,4 +1,4 @@
-package domainUser
+package entity
 
 import "time"
 

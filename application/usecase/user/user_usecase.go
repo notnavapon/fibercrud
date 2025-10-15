@@ -1,9 +1,10 @@
 package usecaseUser
 
 import (
-	domainUser "clean/internal/domain/user"
-	dtoUser "clean/internal/dto/user"
-	jwtpkg "clean/internal/pkg/jwt"
+	dtoUser "clean/application/dto/user"
+	"clean/domain/user/entity"
+	domainUser "clean/domain/user/repository"
+	jwtpkg "clean/infrastructure/pkg/jwt"
 	"errors"
 	"fmt"
 	"time"
@@ -52,7 +53,7 @@ func (usecase *userUsecase) CreateUser(req *dtoUser.CreateUserRequest) (*dtoUser
 	}
 	fmt.Println("Password hash:", string(hashPassword))
 
-	user := &domainUser.User{
+	user := &entity.User{
 		Name:      req.Name,
 		Email:     req.Email,
 		Password:  string(hashPassword),
@@ -155,7 +156,7 @@ func (usecase *userUsecase) DeleteUser(id int) error {
 }
 
 func (usecase *userUsecase) UpdateUser(req *dtoUser.UpdateUserRequest) (map[string]interface{}, error) {
-	user, err := usecase.userRepo.GetByEmail(req.CurrentEmail)
+	user, err := usecase.userRepo.GetByEmail(req.Email)
 
 	if err != nil {
 		return nil, errors.New("failed to update user: " + err.Error())

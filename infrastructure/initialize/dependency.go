@@ -1,9 +1,9 @@
 package initialize
 
 import (
-	handlerUser "clean/internal/delivery/user"
-	postgres "clean/internal/repository/postgres/user"
-	usecaseUser "clean/internal/usecase/user"
+	usecaseUser "clean/application/usecase/user"
+	handlerUser "clean/infrastructure/http/delivery/user"
+	postgres "clean/infrastructure/repository/postgres/user"
 
 	"gorm.io/gorm"
 )
